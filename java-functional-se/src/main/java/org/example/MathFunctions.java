@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Date;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -27,5 +28,23 @@ public class MathFunctions {
         System.out.println(isOdd.apply(2));
         System.out.println(isEven.test(3));
         System.out.println(isEven.test(4));
+
+        Predicate<Student> isApproved = student -> student.getCalificacion() >= 3.0;
+
+        Student juanpablo = new Student(5.0);
+
+        System.out.println(isApproved.test(juanpablo));
+    }
+
+    static class Student {
+        private Double calificacion;
+
+        public Student(Double calificacion){
+            this.calificacion = calificacion;
+        }
+
+        public Double getCalificacion() {
+            return calificacion;
+        }
     }
 }
